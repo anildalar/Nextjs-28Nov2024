@@ -22,3 +22,19 @@ model student {
   createdAt       DateTime @default(now())
   updatedAt       DateTime
 }
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model city {
+  id   Int
+  name String @db.VarChar(255)
+
+  @@ignore
+}
+
+model teacher {
+  id              Int      @id @default(autoincrement())
+  teacher_name    String
+  teacher_surname String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime
+}
